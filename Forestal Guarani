@@ -1,0 +1,373 @@
+index.html<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Forestal Guaraní - App Móvil</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js para los gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600;700;800&display=swap');
+    .font-cursive { font-family: 'Dancing Script', cursive; }
+    body { font-family: 'Inter', sans-serif; background-color: #f1f3f6; -webkit-tap-highlight-color: transparent; }
+  </style>
+</head>
+<body class="pb-20 text-gray-800 select-none">
+
+  <!-- HEADER MÓVIL FIXO -->
+  <header class="sticky top-0 z-40 bg-[#0b3c26] text-white px-3 py-2.5 flex items-center justify-between shadow-md">
+    <div class="flex items-center gap-2">
+      <button class="text-xl p-1"><i class="fa-solid fa-bars"></i></button>
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-[#0b3c26] text-base font-bold shadow-inner">
+          <i class="fa-solid fa-tree"></i>
+        </div>
+        <div>
+          <h1 class="font-black text-sm leading-tight tracking-wide">FORESTAL GUARANÍ</h1>
+          <p class="text-[8px] tracking-widest text-emerald-200 uppercase font-semibold">Gestión Integral</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <div class="relative cursor-pointer p-1">
+        <i class="fa-regular fa-bell text-lg"></i>
+        <span class="absolute top-0 right-0 bg-red-600 text-white text-[9px] font-bold rounded-full w-3.5 h-3.5 flex items-center justify-center border border-[#0b3c26]">3</span>
+      </div>
+
+      <div class="flex items-center gap-1.5 cursor-pointer bg-emerald-900/60 pl-1.5 pr-2 py-1 rounded-full border border-emerald-600/50">
+        <div class="w-6 h-6 rounded-full bg-emerald-800 flex items-center justify-center text-xs">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <i class="fa-solid fa-chevron-down text-[8px] text-emerald-200"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- BANNER HERO -->
+  <div class="relative bg-cover bg-center h-24 px-4 flex items-center justify-between shadow-inner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800');">
+    <h2 class="text-white text-xl font-cursive drop-shadow-md">De la madera al futuro</h2>
+    <div class="bg-[#0b3c26]/90 backdrop-blur-md border border-emerald-500/40 text-white px-2.5 py-1.5 rounded-lg flex items-center gap-2 text-right">
+      <i class="fa-solid fa-industry text-lg text-emerald-300"></i>
+      <div>
+        <div class="font-bold text-[11px] leading-tight">Planta Producción</div>
+        <div class="text-[9px] text-emerald-100">Ituzaingó - Corrientes</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="p-2.5 space-y-3">
+
+    <!-- SECCIÓN DASHBOARD GENERAL -->
+    <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-200">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="font-black text-sm text-gray-800 flex items-center gap-1.5">
+          <i class="fa-solid fa-[#0b3c26] fa-chart-simple text-base"></i> DASHBOARD GENERAL
+        </h2>
+        <div class="bg-gray-100 border rounded-lg px-2.5 py-1 flex items-center gap-1.5 text-[11px] text-gray-700 font-semibold">
+          <i class="fa-regular fa-calendar text-gray-500"></i> Hoy <i class="fa-solid fa-chevron-down text-[8px]"></i>
+        </div>
+      </div>
+
+      <!-- TARJETAS KPIS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+        <div class="bg-[#0e7a45] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">P2 Real</div>
+            <div class="text-lg font-black mt-0.5">1.258 <span class="text-[10px] font-normal">m²</span></div>
+          </div>
+          <i class="fa-solid fa-layer-group text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#0062aa] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">Producción (PZ)</div>
+            <div class="text-lg font-black mt-0.5">12.540 <span class="text-[10px] font-normal">pz</span></div>
+          </div>
+          <i class="fa-solid fa-cubes text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#e86a17] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">Consumo (TN)</div>
+            <div class="text-lg font-black mt-0.5">85,6 <span class="text-[10px] font-normal">tn</span></div>
+          </div>
+          <i class="fa-solid fa-tree text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#6c2d8a] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">Rendimiento</div>
+            <div class="text-lg font-black mt-0.5">68,4 <span class="text-[10px] font-normal">%</span></div>
+          </div>
+          <i class="fa-solid fa-chart-line text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#c92c32] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">P2 Perdido</div>
+            <div class="text-lg font-black mt-0.5">245 <span class="text-[10px] font-normal">m²</span></div>
+          </div>
+          <i class="fa-solid fa-trash-can text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#00a3c4] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">Ingreso (TN)</div>
+            <div class="text-lg font-black mt-0.5">100,3 <span class="text-[10px] font-normal">tn</span></div>
+          </div>
+          <i class="fa-solid fa-truck text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#e5a812] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">Impregnado (PZ)</div>
+            <div class="text-lg font-black mt-0.5">8.720 <span class="text-[10px] font-normal">pz</span></div>
+          </div>
+          <i class="fa-solid fa-droplet text-xl opacity-70"></i>
+        </div>
+
+        <div class="bg-[#0c6e76] text-white p-2.5 rounded-lg flex justify-between items-start shadow-sm">
+          <div>
+            <div class="text-[9px] font-bold uppercase opacity-90">Stock Final</div>
+            <div class="text-lg font-black mt-0.5">42.560 <span class="text-[10px] font-normal">m²</span></div>
+          </div>
+          <i class="fa-solid fa-box-archive text-xl opacity-70"></i>
+        </div>
+      </div>
+
+      <!-- GRÁFICOS -->
+      <div class="grid grid-cols-2 gap-2">
+        <div class="bg-gray-50 p-2 rounded-lg border">
+          <h4 class="text-[10px] font-bold text-gray-700 mb-1">Producción (m²)</h4>
+          <canvas id="chartProduccion" class="h-24"></canvas>
+        </div>
+        <div class="bg-gray-50 p-2 rounded-lg border">
+          <h4 class="text-[10px] font-bold text-gray-700 mb-1">Consumo (TN)</h4>
+          <canvas id="chartConsumo" class="h-24"></canvas>
+        </div>
+        <div class="bg-gray-50 p-2 rounded-lg border">
+          <h4 class="text-[10px] font-bold text-gray-700 mb-1">Rendimiento (%)</h4>
+          <canvas id="chartRendimiento" class="h-24"></canvas>
+        </div>
+        <div class="bg-gray-50 p-2 rounded-lg border">
+          <h4 class="text-[10px] font-bold text-gray-700 mb-1">Paradas (hs)</h4>
+          <canvas id="chartParadas" class="h-24"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULOS PRINCIPALES -->
+    <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-200">
+      <div class="mb-2">
+        <h3 class="font-black text-sm text-gray-800 flex items-center gap-1.5">
+          <i class="fa-solid fa-grip text-[#0b3c26]"></i> MÓDULOS PRINCIPALES
+        </h3>
+        <p class="text-[10px] italic text-gray-500">Toda la información, en un solo lugar</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3">
+        <button class="bg-[#e86a17] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-tree text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">ORIGEN</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Procedencia y carga de rollos</span>
+        </button>
+
+        <button class="bg-[#5e6a71] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-scale-balanced text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">BÁSCULA</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Pesaje y romaneos</span>
+        </button>
+
+        <button class="bg-[#00a3c4] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-boxes-stacked text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">PLAYA DE ROLLOS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Stock y movimiento</span>
+        </button>
+
+        <button class="bg-[#6c2d8a] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-compact-disc text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">ASERRADERO</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Producción y rendimiento</span>
+        </button>
+
+        <button class="bg-[#0e7a45] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-layer-group text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">MADERA VERDE</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Piezas, P2 y m³</span>
+        </button>
+
+        <button class="bg-[#8c4a27] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-temperature-arrow-up text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">SECADEROS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Cámaras y ciclos</span>
+        </button>
+
+        <button class="bg-[#0062aa] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-rotate text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">REPROCESO</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Lotes y ciclos</span>
+        </button>
+
+        <button class="bg-[#00a3c4] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-cubes text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">MADERA OREADA</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Stock y humedad</span>
+        </button>
+
+        <button class="bg-[#e5a812] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-pallet text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">ARMADO</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Semiterminado</span>
+        </button>
+
+        <button class="bg-[#c92c32] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-compress text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">COMPACTADORA</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Producción y lotes</span>
+        </button>
+
+        <button class="bg-[#0062aa] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-triangle-exclamation text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">STOCK PRODUCTO</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Clasificación y defectos</span>
+        </button>
+
+        <button class="bg-[#d82269] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-recycle text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">REMANUFACTURA</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Recuperación</span>
+        </button>
+
+        <button class="bg-[#5e6a71] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-ruler-combined text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">RÚSTICO</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Producción y stock</span>
+        </button>
+
+        <button class="bg-[#00a3c4] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-droplet text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">IMPREGNADORA</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Tratamiento y lotes</span>
+        </button>
+
+        <button class="bg-[#0e7a45] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-layer-group text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">IMPREGNADOS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Stock y calidad</span>
+        </button>
+
+        <button class="bg-[#6c2d8a] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-box text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">PRODUCTO FINAL</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Stock y calidad</span>
+        </button>
+
+        <button class="bg-[#0062aa] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-clipboard-list text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">PEDIDOS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Clientes y estado</span>
+        </button>
+
+        <button class="bg-[#e86a17] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-truck-fast text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">DESPACHOS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Cargas y camiones</span>
+        </button>
+
+        <button class="bg-[#5e6a71] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-file-lines text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">ROMANEOS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Pesajes e informes</span>
+        </button>
+
+        <button class="bg-[#00a3c4] active:scale-95 text-white p-3 rounded-xl flex flex-col items-center text-center shadow-sm transition">
+          <i class="fa-solid fa-bullhorn text-2xl mb-1"></i>
+          <span class="font-extrabold text-xs">COMUNICADOS</span>
+          <span class="text-[9px] mt-0.5 opacity-90 leading-tight">Avisos y novedades</span>
+        </button>
+      </div>
+
+      <!-- USUARIOS Y PERMISOS -->
+      <div class="mt-4 pt-3 border-t bg-gray-50 p-2.5 rounded-lg border">
+        <div class="flex items-center gap-2 mb-2 text-xs font-bold text-gray-700">
+          <i class="fa-solid fa-users text-base text-[#0b3c26]"></i>
+          <span>USUARIOS Y PERMISOS</span>
+        </div>
+        <div class="flex flex-wrap gap-1">
+          <span class="bg-[#e86a17] text-white px-2 py-0.5 rounded text-[10px] font-bold">PAULO</span>
+          <span class="bg-[#5e6a71] text-white px-2 py-0.5 rounded text-[10px] font-bold">OSCAR</span>
+          <span class="bg-[#8c4a27] text-white px-2 py-0.5 rounded text-[10px] font-bold">ADOLFO</span>
+          <span class="bg-[#0e7a45] text-white px-2 py-0.5 rounded text-[10px] font-bold">JUAN</span>
+          <span class="bg-[#d82269] text-white px-2 py-0.5 rounded text-[10px] font-bold">CAMILO</span>
+          <span class="bg-[#e5a812] text-white px-2 py-0.5 rounded text-[10px] font-bold">MEC</span>
+          <span class="bg-[#d82269] text-white px-2 py-0.5 rounded text-[10px] font-bold">MARISOL</span>
+          <span class="bg-[#5e6a71] text-white px-2 py-0.5 rounded text-[10px] font-bold">CIRILO</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-[#0b3c26] text-white flex justify-around py-2 border-t border-emerald-800/60 shadow-lg z-50">
+    <button class="flex flex-col items-center text-emerald-300 font-bold text-[10px] gap-0.5">
+      <i class="fa-solid fa-house text-base"></i>
+      <span>Inicio</span>
+    </button>
+    <button class="flex flex-col items-center text-gray-300 font-bold text-[10px] gap-0.5">
+      <i class="fa-solid fa-chart-column text-base"></i>
+      <span>Estadísticas</span>
+    </button>
+    <button class="flex flex-col items-center text-gray-300 font-bold text-[10px] gap-0.5 relative">
+      <i class="fa-solid fa-bell text-base"></i>
+      <span class="absolute -top-1 right-2 bg-red-600 text-white text-[8px] font-bold rounded-full w-3 h-3 flex items-center justify-center">3</span>
+      <span>Notificaciones</span>
+    </button>
+    <button class="flex flex-col items-center text-gray-300 font-bold text-[10px] gap-0.5">
+      <i class="fa-solid fa-gear text-base"></i>
+      <span>Ajustes</span>
+    </button>
+  </nav>
+
+  <script>
+    const labels = ['17/06', '18/06', '19/06', '20/06', '21/06', '22/06', '23/06'];
+    const optionsCommon = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { 
+        x: { ticks: { font: { size: 8 } }, grid: { display: false } },
+        y: { ticks: { font: { size: 8 } } }
+      }
+    };
+
+    new Chart(document.getElementById('chartProduccion'), {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ data: [1000, 1400, 1220, 1180, 1350, 1500, 1600], backgroundColor: '#0e7a45' }] },
+      options: optionsCommon
+    });
+
+    new Chart(document.getElementById('chartConsumo'), {
+      type: 'line',
+      data: { labels: labels, datasets: [{ data: [30, 45, 50, 52, 58, 50, 70], borderColor: '#0062aa', backgroundColor: '#0062aa' }] },
+      options: optionsCommon
+    });
+
+    new Chart(document.getElementById('chartRendimiento'), {
+      type: 'line',
+      data: { labels: labels, datasets: [{ data: [65, 67, 68, 69, 66, 68, 70], borderColor: '#0e7a45', backgroundColor: '#0e7a45' }] },
+      options: optionsCommon
+    });
+
+    new Chart(document.getElementById('chartParadas'), {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ data: [4, 5, 3.4, 3.9, 2.7, 4.8, 2.8], backgroundColor: '#e86a17' }] },
+      options: optionsCommon
+    });
+  </script>
+</body>
+</html>
